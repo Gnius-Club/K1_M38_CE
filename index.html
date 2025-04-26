@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook - Misión 38</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            background-color: #5DADE2; /* Azul Gnius */
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        .banner {
+            background-color: #85C1E9; /* Azul más claro */
+            color: #333;
+            padding: 15px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .banner:hover {
+            background-color: #AED6F1;
+        }
+        .banner .title {
+            font-size: 1.3em;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 8px;
+            border-top: 1px solid #fff;
+            padding-top: 8px;
+            color: #1A5276; /* Azul oscuro texto */
+        }
+        .content {
+            display: none;
+            padding: 15px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            background-color: #EAF2F8; /* Azul muy claro fondo */
+            border-radius: 5px;
+        }
+        .dialogue {
+            background-color: #FEF9E7; /* Amarillo pálido para diálogo */
+            border: 1px solid #FAD7A0;
+            border-radius: 10px;
+            padding: 10px 15px;
+            margin: 15px 0;
+            text-align: left; /* Cambiado a izquierda para mejor lectura */
+            font-style: italic;
+            color: #784212; /* Marrón oscuro texto */
+            position: relative; /* Para el bocadillo */
+            border-left: 5px solid #F39C12; /* Naranja */
+        }
+
+        .dropdown {
+            margin-bottom: 25px;
+            text-align: center; /* Centrar dropdown */
+        }
+        .dropdown label {
+            font-weight: bold;
+            color: #1A5276;
+        }
+        .dropdown select {
+            font-size: 1.1em;
+            padding: 8px 12px;
+            margin-left: 10px;
+            border-radius: 5px;
+            border: 1px solid #85C1E9;
+        }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px;}
+        td { padding: 12px; border: 1px solid #AED6F1; vertical-align: top; }
+        td strong { color: #1A5276; }
+        .level-title { /* Clase específica para el título del nivel */
+             text-align: center;
+             color: #5DADE2;
+             font-size: 1.4em;
+             margin-bottom: 20px;
+        }
+        /* Clases para ocultar/mostrar contenido por nivel */
+        .k1-content, .k2-content, .k3-content { display: none; }
+         .activity.active .banner {
+             background-color: #AED6F1; /* Slightly different color when active */
+         }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Playbook - Misión 38: ¡La Eco-Fábrica Clasificadora!</h1>
+        </div>
+
+        <div class="dropdown">
+            <label for="class-level">Nivel:</label>
+            <select id="class-level" onchange="updateContent()">
+                <option value="K1">K1 (3 años)</option>
+                <option value="K2">K2 (4 años)</option>
+                <option value="K3">K3 (5 años)</option>
+            </select>
+        </div>
+
+        <h2 id="selected-level" class="level-title">Nivel: K1 (3 años)</h2>
+
+        <!-- ............................................Aquí empezarán las actividades........................................... -->
+
+<!-- Actividad 0: Revisión de Materiales -->
+<div id="activity-0" class="activity">
+    <div class="banner" onclick="toggleContent('revision_materiales')">
+        <div class="title">📚 Actividad 0: Revisión de Materiales</div>
+        <div class="subtitle">Objetivo: Asegurarse de que todos los materiales necesarios para la clase estén disponibles y preparados antes de que lleguen los niños.</div>
+    </div>
+    <div id="revision_materiales" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (N/A):</strong> Revisa que tengas listos los materiales indicados en la **DIAPOSITIVA 1**: 1 Set LEGO Coding Express (tren, vías rectas/curvas, **1 vía en Y**, ladrillos acción rojo, azul, amarillo, blanco, verde) y 10 iBricks por cada pareja.</td>
+                <td><strong>DIÁLOGO SUGERIDO:</strong> N/A</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 1: Bienvenida e Introducción -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('bienvenida')">
+        <div class="title">🎉 Actividad 1: ¡Separando para Reciclar! ⏰ Tiempo: 1 minuto</div>
+        <div class="subtitle">Objetivo: Introducir el concepto de reciclaje, clasificación por tipo de material (color) y la necesidad de diferentes procesos.</div>
+    </div>
+    <div id="bienvenida" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (0.5 minutos):</strong> Reproduce la **DIAPOSITIVA 2** “Bienvenida”. Saluda al CODE SQUAD y pregunta si saben qué es reciclar y por qué separamos la basura.</td>
+                <td>
+                    <div class="dialogue">
+                        "¡Hola, eco-guardianes del CODE SQUAD! ¿Saben qué significa reciclar? ¡Es convertir cosas viejas en cosas nuevas para cuidar nuestro planeta! ¿Y han visto que en casa o en la escuela separamos la basura? ¡Plástico aquí, papel allá, vidrio acullá! ¡Cada material es diferente!"
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (0.5 minutos):</strong> Reproduce la **DIAPOSITIVA 3** "Gimnasio CODE SQUAD". Explica que en una fábrica de reciclaje, cada material sigue un camino y proceso distinto, según reglas de clasificación.</td>
+                <td>
+                     <div class="dialogue">
+                        "¡Pues imaginen una fábrica gigante de reciclaje! ¡Una Eco-Fábrica! Allí, cada material necesita ir a una máquina diferente. '**Si** es metal (ROJO), va a la compactadora. **Si** es plástico (AZUL), va a la lavadora. **Si** es papel (AMARILLO), va a la trituradora'. ¡Son reglas muy importantes! ¡Vamos al Gimnasio Cerebral a practicar cómo seguir diferentes reglas según el material (el color)!"
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 2: Baile de Algoritmos -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('baile-algoritmos')">
+        <div class="title">🎶 Actividad 2: Baile de Algoritmos ⏰ Tiempo: 2 minutos</div>
+        <div class="subtitle">Objetivo: Practicar seguir secuencias para preparar la ejecución de las rutas de reciclaje.</div>
+    </div>
+    <div id="baile-algoritmos" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (2 minutos):</strong> Reproduce la **DIAPOSITIVA 4** “Baile de Algoritmos”. Guía el baile enfatizando el orden de los pasos.</td>
+                 <td>
+                     <div class="dialogue">
+                        "¡Bailemos al ritmo del reciclaje! ¡Cada paso nos lleva al siguiente contenedor! ¡Plástico, papel, metal! ¡Sigamos la secuencia correcta para no mezclar los materiales! ¡Música, maestro!"
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 3: Planteamiento del Problema - ¡La Eco-Fábrica Necesita Orden! -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('planteamiento-problema')">
+        <div class="title">♻️ Actividad 3: ¡Clasificando en la Eco-Fábrica! ⏰ Tiempo: 3 minutos</div>
+        <div class="subtitle">Objetivo: Presentar la Eco-Fábrica, el rol del tren como transportador, la vía en Y como el clasificador, y el reto de programar las acciones correctas para cada material.</div>
+    </div>
+    <div id="planteamiento-problema" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (1.5 minutos):</strong> Reproduce la **DIAPOSITIVA 5**. Describe la Eco-Fábrica y el trabajo del Coding Express transportando materiales reciclables.</td>
+                <td>
+                     <div class="dialogue">
+                        "¡CODE SQUAD, bienvenidos a la Eco-Fábrica Recicladora más moderna del planeta! ¡Aquí llega de todo! Metal, plástico, papel... ¡Nuestro Coding Express es el encargado de transportar estos materiales desde la entrada hasta la máquina correcta! ¡Tiene mucho trabajo!"
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1.5 minutos):</strong> Reproduce la **DIAPOSITIVA 6**. Explica el reto: usar la vía en Y para separar los materiales. Una señal (ladrillo de acción) ANTES de la Y indica el material. NOSOTROS cambiamos la aguja según la regla. DESPUÉS de la Y, en cada rama, habrá otras señales (ladrillos) que indiquen qué proceso (acciones) se realiza con ese material.</td>
+                <td>
+                     <div class="dialogue">
+                        "¡El corazón de la fábrica es esta vía en 'Y'! ¡Es el gran CLASIFICADOR! Antes de llegar a la 'Y', el tren pasará por una señal (un ladrillo de color) que nos dice qué material lleva: ROJO para metal, AZUL para plástico, AMARILLO para papel. **Nuestra misión como controladores de la fábrica:** **Si** vemos ROJO, movemos la palanca a la DERECHA (a la Compactadora). **Si** vemos AZUL, movemos a la IZQUIERDA (a la Lavadora). **Si** vemos AMARILLO, ¡también a la DERECHA! (a la Trituradora, ¡está junto a la compactadora!). ¡Pero eso no es todo! Después de ir por el camino correcto, ¡cada material necesita un proceso diferente! Pondremos MÁS ladrillos de acción DESPUÉS de la 'Y' para programar lo que le pasa a cada material en su máquina. ¿Listos para poner en marcha la Eco-Fábrica?"
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 4: Formación de Parejas -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('formacion-parejas')">
+        <div class="title">🤝 Actividad 4: ¡Ingenieros Eco-Lógicos! ⏰ Tiempo: 3 minutos</div>
+        <div class="subtitle">Objetivo: Formar parejas para construir la fábrica, definir las máquinas y programar los procesos de reciclaje.</div>
+    </div>
+    <div id="formacion-parejas" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (2 minutos):</strong> Reproduce la **DIAPOSITIVA 7** “Formación de Equipos”. Explica que operar una fábrica requiere precisión y trabajo en equipo. Forma las parejas.</td>
+                <td>
+                     <div class="dialogue">
+                        "¡Manejar una fábrica tan importante como la Eco-Fábrica necesita de los mejores Ingenieros Eco-Lógicos! ¡Deben trabajar juntos para que cada material vaya a su sitio y reciba el tratamiento correcto! ¡Formen sus Equipos de Ingenieros Eco-Lógicos!"
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>PASO 2 (1 minuto):</strong> Verifica que todos tengan pareja. Anímales a diseñar mentalmente su fábrica: dónde estará la entrada, la Y, las máquinas (compactadora, lavadora, trituradora).</td>
+                <td>
+                     <div class="dialogue">
+                        "¿Listos, Ingenieros? ¡Imaginen su fábrica! ¿Dónde estará la entrada? ¿La división 'Y'? ¿A la derecha irán la Compactadora y la Trituradora? ¿A la izquierda la Lavadora? ¡Piensen en su diseño! ¡Prepárense para construir!"
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 5: Reto de Codificación - ¡Construye y Programa la Fábrica! -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('reto-codificacion')">
+        <div class="title">🏭 Actividad 5: ¡Montando la Línea de Reciclaje! ⏰ Tiempo: 10 minutos</div>
+        <div class="subtitle">Objetivo: Construir la vía con Y-track, crear las "máquinas" con iBricks, y colocar los ladrillos de acción ANTES de la Y (para señal) y DESPUÉS de la Y (para proceso).</div>
+    </div>
+    <div id="reto-codificacion" class="content">
+        <table>
+             <!-- Paso 1: Construir Vía y Máquinas -->
+             <tr>
+                <td><strong>PASO 1 (4 minutos):</strong> Reproduce la **DIAPOSITIVA 8** "¡Construye tu Eco-Fábrica!". Guía para construir la vía: recta -> Y -> dos ramas. Usar iBricks para hacer 3 "máquinas": Compactadora (con bloques rojos/grises, rama derecha), Lavadora (con bloques azules/blancos, rama izquierda), Trituradora (con bloques amarillos/naranjas, rama derecha junto a compactadora).</td>
+                 <td>
+                     <div class="dialogue">
+                        "¡Ingenieros, a construir! Hagan la vía: recta de entrada, luego la 'Y'. Una rama a la DERECHA, otra a la IZQUIERDA. Ahora, ¡las máquinas! Al final de la rama DERECHA, usen bloques (rojos/grises si tienen) para hacer la ¡Compactadora de Metal! Al lado, hagan la ¡Trituradora de Papel (amarillos)! Al final de la rama IZQUIERDA, usen bloques (azules/blancos) para hacer la ¡Lavadora de Plástico! ¡Nuestra fábrica toma forma!"
+                    </div>
+                </td>
+            </tr>
+            <!-- Paso 2: Colocar Ladrillos de Proceso (Post-Y) -->
+             <!-- K1 -->
+            <tr class="k1-content">
+                <td><strong>PASO 2 - K1 (6 minutos):</strong> Reproduce la **DIAPOSITIVA 9** "Proceso K1: ¡Acción Simple!". Pide colocar 1 ladrillo de acción justo antes de cada máquina: ROJO (parar) antes de Compactadora (Der), AZUL (reversa) antes de Lavadora (Izq). Preparar ladrillos Rojo y Azul para poner ANTES de la Y durante la prueba.</td>
+                 <td>
+                     <div class="dialogue">
+                        "¡Equipo K1! ¡Vamos a programar las máquinas! En el camino a la Compactadora (derecha), justo antes de los bloques, pongan el ladrillo ROJO (¡el metal se compacta y para!). En el camino a la Lavadora (izquierda), justo antes de los bloques, pongan el ladrillo AZUL (¡el plástico se lava y sale hacia atrás!). ¡Preparen los ladrillos Rojo y Azul que pondrán ANTES de la 'Y' para indicar qué material llega!"
+                    </div>
+                </td>
+            </tr>
+             <!-- K2 -->
+             <tr class="k2-content">
+                 <td><strong>PASO 2 - K2 (6 minutos):</strong> Reproduce la **DIAPOSITIVA 10** "Proceso K2: ¡Doble Acción!". Pide colocar secuencia de 2 ladrillos antes de alguna máquina: Compactadora(Der): AMARILLO(sonar)+ROJO(parar). Lavadora(Izq): AZUL(reversa)+BLANCO(luz). Trituradora(Der): AMARILLO(sonar)+VERDE(acción?). Preparar Rojo, Azul, Amarillo para ANTES de la Y.</td>
+                 <td>
+                     <div class="dialogue">
+                        "¡Ingenieros K2! ¡Sus máquinas hacen más cosas! **Compactadora (Der):** Pongan AMARILLO (sonido de compactar) y LUEGO ROJO (parada final). **Lavadora (Izq):** Pongan AZUL (reversa, saliendo limpio) y LUEGO BLANCO (luz de 'listo'). **Trituradora (Der, junto a compactadora):** Pongan AMARILLO (sonido de triturar) y LUEGO quizás VERDE (¿señal de papel listo?). ¡Preparen los ladrillos Rojo, Azul y Amarillo para ponerlos ANTES de la 'Y'!"
+                    </div>
+                </td>
+            </tr>
+             <!-- K3 -->
+             <tr class="k3-content">
+                 <td><strong>PASO 2 - K3 (6 minutos):</strong> Reproduce la **DIAPOSITIVA 11** "Proceso K3: ¡Línea Completa!". Pide colocar secuencias de 2-3 ladrillos antes de cada máquina. Ej: Compactadora(Der): Amarillo->Blanco->Rojo. Lavadora(Izq): Azul->Amarillo->Blanco. Trituradora(Der): Amarillo->Verde->Azul. Preparar Rojo, Azul, Amarillo (y quizás Blanco/Verde) para ANTES de la Y.</td>
+                 <td>
+                     <div class="dialogue">
+                        "¡Maestros K3! ¡Sus líneas de reciclaje son súper avanzadas! ¡Programen secuencias de 2 o 3 acciones para cada máquina! Por ejemplo: **Compactadora(Der):** Sonido, Luz, Parada. **Lavadora(Izq):** Reversa, Sonido, Luz. **Trituradora(Der):** Sonido, Acción Verde, Reversa. ¡Inventen sus procesos! ¡Y preparen los ladrillos Rojo, Azul, Amarillo y otros si los usan como señal ANTES de la 'Y'!"
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 6: ¡Operando la Eco-Fábrica! -->
+<div id="activity-6" class="activity">
+    <div class="banner" onclick="toggleContent('probando-fabrica')">
+        <div class="title">⚙️ Actividad 6: ¡Clasificación en Marcha! ⏰ Tiempo: 10 minutos</div>
+        <div class="subtitle">Objetivo: Simular la llegada de diferentes materiales (colocando ladrillo señal antes de Y), aplicar la regla (mover aguja Y) y observar la secuencia de proceso resultante en la rama correcta.</div>
+    </div>
+    <div id="probando-fabrica" class="content">
+        <table>
+             <!-- K1 -->
+            <tr class="k1-content">
+                <td><strong>PASO 1 - K1 (10 minutos):</strong> Reproduce la **DIAPOSITIVA 12** "¡Operando K1!". Guía: "¡Llega metal (ROJO)!". Poner Rojo ANTES de Y. Preguntar: "¿Regla?". Mover aguja DERECHA. Empujar tren. Observar parada en Compactadora. Repetir con Azul -> Izquierda -> Reversa en Lavadora.</td>
+                 <td>
+                     <div class="dialogue">
+                        "¡Equipo K1! ¡Alerta, llega un cargamento de METAL! Pongan el ladrillo ROJO antes de la 'Y'. ¿Regla para Rojo? (¡Derecha!). ¡Muevan la palanca a la derecha! ¡Empujen el tren! ¿Llegó a la Compactadora y paró? ¡Sí! // ¡Ahora llega PLÁSTICO! Pongan el AZUL antes de la 'Y'. ¿Regla para Azul? (¡Izquierda!). ¡Muevan la palanca a la izquierda! ¡Empujen! ¿Llegó a la Lavadora e hizo reversa? ¡Genial! ¡Están clasificando!"
+                    </div>
+                </td>
+            </tr>
+             <!-- K2 -->
+             <tr class="k2-content">
+                 <td><strong>PASO 1 - K2 (10 minutos):</strong> Reproduce la **DIAPOSITIVA 13** "¡Operando K2!". Guía: Probar con Rojo (-> Derecha -> Sonido+Parada). Probar con Azul (-> Izquierda -> Reversa+Luz). Probar con Amarillo (-> Derecha -> Sonido+Verde). Observar las secuencias de 2 pasos post-Y.</td>
+                 <td>
+                     <div class="dialogue">
+                        "¡Ingenieros K2! ¡Producción en marcha! **Metal (ROJO):** Poner Rojo -> Palanca Derecha -> Empujar. ¿Hizo Sonido Y Paró en la Compactadora? ¡Bien! // **Plástico (AZUL):** Poner Azul -> Palanca Izquierda -> Empujar. ¿Hizo Reversa Y Luz en la Lavadora? ¡Perfecto! // **Papel (AMARILLO):** Poner Amarillo -> Palanca Derecha -> Empujar. ¿Hizo Sonido Y Acción Verde en la Trituradora? ¡Excelente! ¡Cada material con su doble proceso!"
+                    </div>
+                </td>
+            </tr>
+             <!-- K3 -->
+             <tr class="k3-content">
+                 <td><strong>PASO 1 - K3 (10 minutos):</strong> Reproduce la **DIAPOSITIVA 14** "¡Operando K3!". Guía: Probar los 3+ materiales con sus reglas de dirección y observar las secuencias complejas (2-3 acciones) en cada máquina/rama. Fomentar la descripción de todo el proceso.</td>
+                 <td>
+                     <div class="dialogue">
+                        "¡Maestros K3! ¡Fábrica a toda máquina! Prueben cada material: **Metal (ROJO):** Rojo -> Derecha -> ¿Secuencia de 2-3 acciones en Compactadora? ¡Descríbanla! // **Plástico (AZUL):** Azul -> Izquierda -> ¿Secuencia en Lavadora? ¡Cuéntenla! // **Papel (AMARILLO):** Amarillo -> Derecha -> ¿Secuencia en Trituradora? ¡Detállenla! (Si usan más colores, pruébenlos). ¡Están manejando una línea de producción completa!"
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!-- Actividad 7 OMITIDA -->
+
+<!-- Actividad 8: Conclusión y Reflexión -->
+<div id="activity-8" class="activity">
+    <div class="banner" onclick="toggleContent('conclusion-reflexion')">
+        <div class="title">🏁 Actividad 8: ¡Planeta Feliz, Fábrica Eficiente! ⏰ Tiempo: 5 minutos</div>
+        <div class="subtitle">Objetivo: Celebrar el éxito en la clasificación avanzada, reforzar la lógica condicional compleja y la secuenciación de procesos múltiples.</div>
+    </div>
+    <div id="conclusion-reflexion" class="content">
+        <table>
+            <tr>
+                <td><strong>PASO 1 (5 minutos):</strong> Reproduce la **DIAPOSITIVA 15** "¡Misión Cumplida!". Reúne al grupo, felicita por operar la Eco-Fábrica. Realiza preguntas sobre la lógica "Si... entonces..." y las secuencias de procesos.</td>
+                <td>
+                    <div class="dialogue">
+                        "¡MISIÓN CUMPLIDA, ingenieros eco-lógicos del CODE SQUAD! ¡Han puesto en marcha la Eco-Fábrica y han clasificado todos los materiales a la perfección! ¡El planeta está más limpio y feliz gracias a ustedes! Pensemos en esta fábrica tan inteligente:
+1. ¿Cómo sabíamos a dónde enviar cada material (metal, plástico, papel)? (¡Por la señal de color ANTES de la 'Y'!)
+2. ¿Qué teníamos que hacer nosotros para que el tren fuera al lugar correcto? (¡Mover la palanca de la 'Y' según la regla!)
+3. Después de ir al lugar correcto, ¿el tren hacía más cosas? (¡Sí, seguía otra secuencia de ladrillos!) ¿Era la misma secuencia para todos los materiales? (¡No!)
+¡Hoy hemos creado una máquina clasificadora súper avanzada! Usamos una señal para tomar una decisión (**Si** color X, **entonces** voy por aquí), y luego seguimos OTRA secuencia de pasos diferente para cada caso. ¡Eso es programación condicional muy inteligente! ¡Son maestros de la lógica y el reciclaje! ¡Hasta la próxima misión!"
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+        <!-- ............................................Aquí terminarán las actividades........................................... -->
+
+    </div>
+
+<script>
+    function toggleContent(id) {
+        var content = document.getElementById(id);
+        var parentActivity = content.closest('.activity'); // Encuentra el contenedor de la actividad
+        if (content.style.display === "block") {
+            content.style.display = "none";
+            parentActivity.classList.remove('active'); // Remueve clase activa si se cierra
+        } else {
+             // Opcional: Cierra otros contenidos abiertos antes de abrir uno nuevo
+             // closeAllContents();
+            content.style.display = "block";
+            parentActivity.classList.add('active'); // Añade clase activa si se abre
+        }
+    }
+
+    // Función opcional para cerrar todos los demás contenidos al abrir uno
+    /*
+    function closeAllContents() {
+        var allContents = document.querySelectorAll('.content');
+        var allActivities = document.querySelectorAll('.activity');
+        allContents.forEach(function(content) {
+            content.style.display = 'none';
+        });
+         allActivities.forEach(function(activity) {
+             activity.classList.remove('active');
+         });
+    }
+    */
+
+    function updateContent() {
+        var level = document.getElementById("class-level").value;
+        // Actualiza el texto del título H2
+        var levelText = document.getElementById("class-level").options[document.getElementById("class-level").selectedIndex].text;
+        document.getElementById("selected-level").innerText = "Nivel: " + levelText;
+
+        // Oculta todas las filas de contenido específico de nivel primero
+        var k1Contents = document.querySelectorAll('.k1-content');
+        var k2Contents = document.querySelectorAll('.k2-content');
+        var k3Contents = document.querySelectorAll('.k3-content');
+
+        k1Contents.forEach(function(el) { el.style.display = 'none'; });
+        k2Contents.forEach(function(el) { el.style.display = 'none'; });
+        k3Contents.forEach(function(el) { el.style.display = 'none'; });
+
+        // Muestra solo las filas del nivel seleccionado
+        // Usamos 'table-row' porque estamos mostrando/ocultando filas de tabla (<tr>)
+        var selectedContents = document.querySelectorAll('.' + level.toLowerCase() + '-content');
+        selectedContents.forEach(function(el) {
+             // Importante: Necesitamos asegurarnos de que el display sea correcto para filas de tabla
+             if (el.tagName === 'TR') {
+                 el.style.display = 'table-row';
+             } else {
+                 // Si por alguna razón hay otros elementos, usar 'block' o ajustar según sea necesario
+                 el.style.display = 'block';
+             }
+        });
+    }
+
+    // Asegura que updateContent se ejecute cuando la página cargue
+    document.addEventListener('DOMContentLoaded', function() {
+        updateContent();
+    });
+</script>
+
+</body>
+</html>
